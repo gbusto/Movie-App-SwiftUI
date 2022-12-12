@@ -1,0 +1,6 @@
+framework module Pods_Movie_app_SwiftUI {
+  umbrella header "Pods-Movie app SwiftUI-umbrella.h"
+
+  export *
+  module * { export * }
+}
