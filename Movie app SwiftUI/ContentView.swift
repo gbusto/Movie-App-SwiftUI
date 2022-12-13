@@ -9,10 +9,12 @@ import SwiftUI
 import CoreData
 import Alamofire
 
+
 struct ContentView: View {
     let itemsPerRow: CGFloat = 3
     let horizontalSpacing: CGFloat = 10
     let height: CGFloat = 200
+    var bottom: CGFloat = .zero
     
     private var omdb = Omdb(apiKey: "c3bfc84")
     
@@ -22,6 +24,8 @@ struct ContentView: View {
     
     @State private var errorMessage: String = ""
     
+    @State private var showLoadMoreButton: Bool = false
+
     let columns = [
         GridItem(.flexible(), alignment: .top),
         GridItem(.flexible(), alignment: .top),
@@ -40,6 +44,12 @@ struct ContentView: View {
                     }
                 }
                 .padding()
+
+                if showLoadMoreButton {
+                    // Should show only where there are movie search results, and there are still
+                    // more results to pull down.
+                    Button("Load more movies", action: getMoreSearchResults)
+                }
             }
         }
         .searchable(text: $searchText, prompt: "Search for movies")
@@ -51,7 +61,15 @@ struct ContentView: View {
     func getSearchResults() {
         let movie = $searchText.wrappedValue
         print("You searched for: \(movie)")
-        omdb.searchForMovie(title: movie, completion: updateMovieResults(result:))
+        omdb.reset()
+
+        omdb.movieToSearch = movie
+        omdb.searchForMovie(completion: updateMovieResults(result:))
+    }
+
+    func getMoreSearchResults() {
+        omdb.searchForMovie(page: omdb.getNextPage(),
+                            completion: appendMovieResults(result:))
     }
     
     func updateMovieResults(result: Result<[MovieSearchResult], Error>) {
@@ -60,9 +78,28 @@ struct ContentView: View {
             movies = _movies
             if movies.isEmpty {
                 errorMessage = "No results found"
+                showLoadMoreButton = false
             }
             else {
                 errorMessage = ""
+                showLoadMoreButton = true
+            }
+
+        case .failure(let error):
+            let err: AFError = error as! AFError
+            movies = []
+            errorMessage = "\(String(describing: err.errorDescription))"
+            print(error)
+        }
+    }
+
+    func appendMovieResults(result: Result<[MovieSearchResult], Error>) {
+        switch result {
+        case .success(let _movies):
+            movies += _movies
+            if omdb.reachedLastPage {
+                // This means there are no more search results for the given title
+                showLoadMoreButton = false
             }
             
         case .failure(let error):

@@ -34,6 +34,7 @@ struct MovieView: View {
                 .aspectRatio(contentMode: .fit)
             Text(title)
                 .multilineTextAlignment(.center)
+                .foregroundColor(.black)
         }
     }
 }
