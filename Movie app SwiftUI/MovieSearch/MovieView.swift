@@ -8,20 +8,6 @@
 import SwiftUI
 import Kingfisher
 
-struct MovieSearchRoot: Decodable {
-    var Search: [MovieSearchResult]?
-}
-
-struct MovieSearchResult: Identifiable, Decodable {
-    var id: String {imdbID}
-    
-    var Poster: String
-    var Title: String
-    var `Type`: String
-    var Year: String
-    var imdbID: String
-}
-
 struct MovieView: View {
     let title: String
     let poster: String

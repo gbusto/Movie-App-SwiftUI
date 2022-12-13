@@ -10,7 +10,7 @@ import CoreData
 import Alamofire
 
 
-struct ContentView: View {
+struct MovieSearchView: View {
     let itemsPerRow: CGFloat = 3
     let horizontalSpacing: CGFloat = 10
     let height: CGFloat = 200
@@ -132,23 +132,8 @@ struct ContentView: View {
 }
 
 
-struct LoadingView: View {
-    var tintColor: Color = .gray
-    var scaleSize: CGFloat = 2.0
-    var loadingText: String = "Getting data..."
-
-    var body: some View {
-        ProgressView()
-            .scaleEffect(scaleSize, anchor: .center)
-            .progressViewStyle(CircularProgressViewStyle(tint: tintColor))
-            .padding()
-        Text(loadingText)
-    }
-}
-
-
-struct ContentView_Previews: PreviewProvider {
+struct MovieSearchView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MovieSearchView()
     }
 }

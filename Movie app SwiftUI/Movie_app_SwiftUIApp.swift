@@ -13,7 +13,7 @@ struct Movie_app_SwiftUIApp: App {
 
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MovieSearchView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
