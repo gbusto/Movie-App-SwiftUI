@@ -16,7 +16,6 @@
 		03B0744C2940C4780095ACE9 /* Movie_app_SwiftUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0744B2940C4780095ACE9 /* Movie_app_SwiftUITests.swift */; };
 		03B074562940C4780095ACE9 /* Movie_app_SwiftUIUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B074552940C4780095ACE9 /* Movie_app_SwiftUIUITests.swift */; };
 		03B074582940C4780095ACE9 /* Movie_app_SwiftUIUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B074572940C4780095ACE9 /* Movie_app_SwiftUIUITestsLaunchTests.swift */; };
-		03B0746729429E300095ACE9 /* RowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0746629429E300095ACE9 /* RowView.swift */; };
 		03B0746929429E510095ACE9 /* MockStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0746829429E510095ACE9 /* MockStore.swift */; };
 		03B0746B2942A1FB0095ACE9 /* MovieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0746A2942A1FB0095ACE9 /* MovieView.swift */; };
 		03B0746D2942A28C0095ACE9 /* RandomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 03B0746C2942A28C0095ACE9 /* RandomColor.swift */; };
@@ -58,7 +57,6 @@
 		03B074512940C4780095ACE9 /* Movie app SwiftUIUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Movie app SwiftUIUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03B074552940C4780095ACE9 /* Movie_app_SwiftUIUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_app_SwiftUIUITests.swift; sourceTree = "<group>"; };
 		03B074572940C4780095ACE9 /* Movie_app_SwiftUIUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Movie_app_SwiftUIUITestsLaunchTests.swift; sourceTree = "<group>"; };
-		03B0746629429E300095ACE9 /* RowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowView.swift; sourceTree = "<group>"; };
 		03B0746829429E510095ACE9 /* MockStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockStore.swift; sourceTree = "<group>"; };
 		03B0746A2942A1FB0095ACE9 /* MovieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieView.swift; sourceTree = "<group>"; };
 		03B0746C2942A28C0095ACE9 /* RandomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomColor.swift; sourceTree = "<group>"; };
@@ -136,7 +134,6 @@
 				03B0743E2940C4780095ACE9 /* Persistence.swift */,
 				03B074402940C4780095ACE9 /* Movie_app_SwiftUI.xcdatamodeld */,
 				03B0743B2940C4780095ACE9 /* Preview Content */,
-				03B0746629429E300095ACE9 /* RowView.swift */,
 				03B0746829429E510095ACE9 /* MockStore.swift */,
 				03B0746A2942A1FB0095ACE9 /* MovieView.swift */,
 				03B0746C2942A28C0095ACE9 /* RandomColor.swift */,
@@ -434,7 +431,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				03B074422940C4780095ACE9 /* Movie_app_SwiftUI.xcdatamodeld in Sources */,
-				03B0746729429E300095ACE9 /* RowView.swift in Sources */,
 				03B677E329469896004DD226 /* MovieDetailsView.swift in Sources */,
 				03B0743F2940C4780095ACE9 /* Persistence.swift in Sources */,
 				03B074712944DB620095ACE9 /* Omdb.swift in Sources */,
