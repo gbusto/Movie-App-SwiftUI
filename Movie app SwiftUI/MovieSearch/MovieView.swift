@@ -14,7 +14,6 @@ struct MovieView: View {
     
     var body: some View {
         VStack {
-            //RoundedRectangle(cornerRadius: 12).foregroundColor(.random)
             KFImage(URL(string: poster))
                 .resizable()
                 .aspectRatio(contentMode: .fit)

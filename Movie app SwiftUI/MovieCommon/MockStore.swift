@@ -8,7 +8,6 @@
 import Foundation
 
 struct MockStore {
-    
     static var movies = [
         MovieSearchResult(
             Poster: "https://m.media-amazon.com/images/M/MV5BOTMwYjc5ZmItYTFjZC00ZGQ3LTlkNTMtMjZiNTZlMWQzNzI5XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg",

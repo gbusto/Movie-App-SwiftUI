@@ -8,7 +8,7 @@
 import SwiftUI
 import CoreData
 import Alamofire
-
+import Omdb
 
 struct MovieSearchView: View {
     let itemsPerRow: CGFloat = 3
@@ -78,13 +78,12 @@ struct MovieSearchView: View {
         omdb.reset()
 
         omdb.movieToSearch = movie
-        omdb.searchForMovie(completion: updateMovieResults(result:))
+        omdb.getNextSearchResults(completion: updateMovieResults(result:))
         loading = true
     }
 
     func getMoreSearchResults() {
-        omdb.searchForMovie(page: omdb.getNextPage(),
-                            completion: appendMovieResults(result:))
+        omdb.getNextSearchResults(completion: appendMovieResults(result:))
     }
     
     func updateMovieResults(result: Result<[MovieSearchResult], Error>) {

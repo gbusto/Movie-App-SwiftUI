@@ -9,6 +9,7 @@ import SwiftUI
 import CoreData
 import Alamofire
 import Kingfisher
+import Omdb
 
 struct MovieDetailsView: View {
     public var omdb = Omdb(apiKey: "c3bfc84")
@@ -44,7 +45,6 @@ struct MovieDetailsView: View {
             moviePlot = details.Plot
         case .failure(let error):
             let err: AFError = error as! AFError
-            //errorMessage = "\(String(describing: err.errorDescription))"
             print(err)
         }
     }
