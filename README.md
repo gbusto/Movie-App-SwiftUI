@@ -8,9 +8,11 @@ I'm unsure if Pods are fully bundled with the project in its current state on Gi
 
 Ensure you have Cocoapods installed on your machine. If not, follow the instructions here.
 
-Once you can run the pod command, run pod install to install the Pods for Alamofire and Kingfisher.
+Once you can run the pod command, run `pod install` to install the Pods for Alamofire and Kingfisher.
 
-After that, you should just be able to run the app as-is. The Omdb API key is included already. I know this is poor practice for production, but this is a small test app that will only be shared with Jacob (and potentially other Dfinitiv employees).
+The Omdb API key is included already. I know this is poor practice for production, but this is a small test app that will only be shared with Jacob (and potentially other Dfinitiv employees).
+
+The final step would be cloning this Swift Package which contains the Omdb API calls: https://github.com/gbusto/Movie-App-Omdb-Package. Add it to the project and you should be good to go.
 
 ## Progress and current state
 The previous app was built using Storyboard while this one uses SwiftUI. SwiftUI, after getting a basic understanding of it, was *much* simpler to use compared to Storyboards, CollectionViews, CollectionViewCells, etc. The UI in this version looks much better than in the original app that used Storyboards.
