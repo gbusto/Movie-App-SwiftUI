@@ -18,3 +18,6 @@ The previous app was built using Storyboard while this one uses SwiftUI. SwiftUI
 I was also able to get pagination working to load more movies, but the method has room for improvement.
 
 One of the other things I did differently this time was to separate out the Alamofire Omdb request code into its own Package to test Swift Packages. This seems like a good option to allow for separation of logic to enable simpler, modular updates.
+
+## Demo
+https://user-images.githubusercontent.com/4229232/207699661-4f429e6f-22e0-4be7-b5be-804ddf2900b2.mov
