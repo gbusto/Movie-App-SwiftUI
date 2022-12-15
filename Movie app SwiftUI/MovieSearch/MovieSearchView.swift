@@ -16,7 +16,12 @@ struct MovieSearchView: View {
     let height: CGFloat = 200
     var bottom: CGFloat = .zero
     
+    static var DARK_MODE_STR: String = "Dark Mode"
+    static var LIGHT_MODE_STR: String = "Light Mode"
+    
     private var omdb = Omdb(apiKey: "c3bfc84")
+    
+    @AppStorage("DarkMode") private var darkMode: Bool = false
     
     @State private var searchText = ""
     
@@ -39,33 +44,56 @@ struct MovieSearchView: View {
     ]
         
     var body: some View {
+        
         NavigationStack {
-            Text(errorMessage)
-            ScrollView {
-                LazyVGrid(columns: columns) {
-                    ForEach(movies) { movie in
-                        NavigationLink(destination: MovieDetailsView(imdbID: movie.imdbID)) {
-                            MovieView(title: movie.Title, poster: movie.Poster)
+            ZStack {
+                Color(darkMode ? .black : .white).edgesIgnoringSafeArea(.all)
+                
+                Text(errorMessage)
+                    .foregroundColor(darkMode ? .white : .black)
+                
+                ScrollView {
+                    LazyVGrid(columns: columns) {
+                        ForEach(movies) { movie in
+                            NavigationLink(destination: MovieDetailsView(imdbID: movie.imdbID)) {
+                                MovieView(title: movie.Title,
+                                          poster: movie.Poster,
+                                          textColor: darkMode ? .white : .black)
+                            }
                         }
                     }
+                    .padding()
+                    
+                    if loading {
+                        LoadingView(tintColor: darkMode ? .white : .gray)
+                    }
+                    
+                    if showLoadMoreButton {
+                        // Should show only where there are movie search results, and there are still
+                        // more results to pull down.
+                        Button("Load more movies", action: getMoreSearchResults)
+                            .foregroundColor(.blue)
+                    }
                 }
-                .padding()
-
-                if loading {
-                    LoadingView()
-                }
-
-                if showLoadMoreButton {
-                    // Should show only where there are movie search results, and there are still
-                    // more results to pull down.
-                    Button("Load more movies", action: getMoreSearchResults)
+                
+                .toolbar {
+                    ToolbarItem {
+                        Button(darkMode ? "Light Mode" : "Dark Mode", action: switchViewMode)
+                            .foregroundColor(.blue)
+                    }
                 }
             }
         }
         .searchable(text: $searchText, prompt: "Search for movies")
+        .foregroundColor(darkMode ? .white : .black)
         .onSubmit(of: .search) {
             getSearchResults()
         }
+        .preferredColorScheme(darkMode ? .dark : .light)
+    }
+    
+    func switchViewMode() {
+        darkMode = !darkMode
     }
     
     func getSearchResults() {
